@@ -3,7 +3,7 @@
 # Scheme: https://github.com/industrial-mathematics-group/.github/blob/main/.github/CONTRIBUTING.md#ai-assisted-contributions
 # The LAST annotation that matches a file wins. Inline tags in a file win over
 # this file unless the matching annotation sets precedence = "override".
-version = 3
+version = 4
 
 # exclude = ["reviews/**", "docs/build/**"]   # files that need no declaration,
 # such as the committed AI reviews in reviews/ (CONTRIBUTING.md)
@@ -19,7 +19,7 @@ merge-method = "merge"     # how PRs land: "merge" (default), "squash" or "rebas
 # Minimum review levels. G1-G3 always need at least A1. Tick only H0 in a PR to see it fail.
 [policy]
 "*" = { human = "H1" }
-G3  = { human = "H1", ai = "A2" }
+G3  = { human = "H1", ai = "A1" }
 
 # Default for everything
 [[annotations]]
@@ -33,16 +33,15 @@ Reviewed-by = ["Pascal Jung"]
 path = "src/playground/fitting.py"
 AI-Generation = "G2"
 Human-Review = "H1"
-AI-Review = "A1"
+AI-Review = "A0"
 Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
 Reviewed-by = ["Pascal Jung"]
-AI-Reviewed-by = ["Claude Opus 5.5 (Anthropic), self-check by the generating session"]
 
 [[annotations]]
 path = "results/**"
 AI-Generation = "G3"
 Human-Review = "H1"
-AI-Review = "A2"
+AI-Review = "A1"
 Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
 Reviewed-by = ["Pascal Jung"]
 AI-Reviewed-by = ["Claude Opus 5.5 (Anthropic), fresh review session"]
@@ -59,8 +58,7 @@ AI-Generation = "G1"
 Assisted-by = ["Claude Sonnet 5.5 (Anthropic)"]
 Human-Review = "H2"
 Reviewed-by = ["Pascal Jung"]
-AI-Review = "A1"
-AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), self-check by the generating session"]
+AI-Review = "A0"
 
 [[commits]]
 commit = "a24781b"

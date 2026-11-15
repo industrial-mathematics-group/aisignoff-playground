@@ -1,0 +1,37 @@
+{
+ "format": 1,
+ "aisignoff": "1.0.0rc6",
+ "rules": 2,
+ "commit": "66eaa2aac1e228f2c4bc9cea058a0b32147742f9",
+ "declarations": [
+  {"AI-Generation": "G0", "Human-Review": "H2", "AI-Review": "A0", "Assisted-by": [], "AI-Reviewed-by": [], "Reviewed-by": ["Pascal Jung"], "source": "SIGNOFF.toml [1]"},
+  {"AI-Generation": "G3", "Human-Review": "H1", "AI-Review": "A1", "Assisted-by": ["Claude Opus (Anthropic)"], "AI-Reviewed-by": ["Claude Opus (Anthropic), new session without the generating conversation"], "Reviewed-by": ["Pascal Jung <dev@blackslash.win>"], "source": "commit 1830cfb (Add Signoff-Badges workflow for PR summaries (#…), pull request checkboxes"},
+  {"AI-Generation": "G0", "Human-Review": "H2", "AI-Review": "A0", "Assisted-by": [], "AI-Reviewed-by": [], "Reviewed-by": ["Pascal Jung <dev@blackslash.win>"], "source": "commit e3f56d1 (Add GitHub Actions workflow for signoff request…), pull request checkboxes"},
+  {"AI-Generation": "G2", "Human-Review": "H1", "AI-Review": "A0", "Assisted-by": ["Claude Opus (Anthropic)"], "AI-Reviewed-by": [], "Reviewed-by": ["Pascal Jung <dev@blackslash.win>"], "source": "commit 3efa2ff (Add badges and the folder report on GitHub Page…), pull request checkboxes"},
+  {"AI-Generation": "G0", "Human-Review": "H3", "AI-Review": "A0", "Assisted-by": [], "AI-Reviewed-by": [], "Reviewed-by": ["John Doe"], "source": "SIGNOFF.toml [1] + SIGNOFF.toml attestation [1]"},
+  {"AI-Generation": "G3", "Human-Review": "H1", "AI-Review": "A1", "Assisted-by": ["Claude Opus 5.5 (Anthropic)"], "AI-Reviewed-by": ["Claude Opus 5.5 (Anthropic), fresh review session"], "Reviewed-by": ["Pascal Jung"], "source": "SIGNOFF.toml [3]"},
+  {"AI-Generation": "G1", "Human-Review": "H2", "AI-Review": "A0", "Assisted-by": ["Claude Opus 5.5 (Anthropic)"], "AI-Reviewed-by": [], "Reviewed-by": ["Pascal Jung"], "source": "inline"},
+  {"AI-Generation": "G2", "Human-Review": "H1", "AI-Review": "A0", "Assisted-by": ["Claude Opus 5.5 (Anthropic)"], "AI-Reviewed-by": [], "Reviewed-by": ["Pascal Jung"], "source": "SIGNOFF.toml [2]"}
+ ],
+ "files": {
+  ".github/workflows/file-signoff.yml": {"blob": "ce1c3943f6bc54d74163fac8f62de0ff1463c5a4", "runs": [[1, 20, 0]]},
+  ".github/workflows/pr-signoff.yml": {"blob": "ab2dcedb2970f8817b72ef54a2e03952a475bf34", "runs": [[1, 16, 0]]},
+  ".github/workflows/signoff-assistant.yml": {"blob": "e022ba285e04acacb2e474018c8bb6587b328f82", "runs": [[1, 36, 0]]},
+  ".github/workflows/signoff-badges.yml": {"blob": "27789e424d46c33fb7412c3015fd2aaf81512d03", "runs": [[1, 14, 1]]},
+  ".github/workflows/signoff-request.yml": {"blob": "3862305c993f91604a7401b31163efa4a1ca7170", "runs": [[1, 27, 2]]},
+  ".gitignore": {"blob": "d1457f0aa77a9671f3e342ce859ece2554ec37d5", "runs": [[1, 4, 0]]},
+  "README.md": {"blob": "62ca5aa3f948c4246b359ba7c819fcea4e5081ea", "runs": [[1, 2, 0], [3, 12, 3], [13, 27, 0], [28, 28, 3], [29, 30, 0], [31, 34, 3], [35, 41, 0], [42, 43, 3], [44, 108, 0], [109, 109, 3]]},
+  "docs/notes.md": {"blob": "60eb1495fe2f5be7a4c26c1dc013b9c5ac4bb87b", "runs": [[1, 4, 4]]},
+  "extras/workflows/file-signoff.yml": {"blob": "47541a15c2607ca15aaf03332aec4554114c55cf", "runs": [[1, 19, 0]]},
+  "extras/workflows/signoff-pr-diff.yml": {"blob": "fad6f9d387ae768bdbd32336a622c40cf278ae3b", "runs": [[1, 53, 0]]},
+  "extras/workflows/signoff-pr-files.yml": {"blob": "c812036f2866f82128132bd8834bf5cc9dde8b5d", "runs": [[1, 85, 0]]},
+  "pyproject.toml": {"blob": "e6604c5e92e4d165fbe714a9877f453ee0fe9189", "runs": [[1, 8, 0]]},
+  "results/fit.csv": {"blob": "316ce8ac14a116a55a2907f3810bc40ebbb0d843", "runs": [[1, 4, 5]]},
+  "results/summary.md": {"blob": "8e914460bce3cd0c251c871933c7fe2afa9e66fc", "runs": [[1, 3, 5]]},
+  "scripts/make_results.py": {"blob": "656d09f6da3f3f1895fa2dcfaa70953dd9b1c7d3", "runs": [[1, 28, 6]]},
+  "src/playground/__init__.py": {"blob": "293ff0dafd55f26ffa42370c9871c69209824a06", "runs": [[1, 6, 0]]},
+  "src/playground/fitting.py": {"blob": "3519164cfb08a18b841f2eae8c0c9fcf959f6e8d", "runs": [[1, 17, 7]]},
+  "src/playground/stats.py": {"blob": "59d066e0a4c395b14339577a8c0d8d0abeabcfc8", "runs": [[1, 18, 0]]},
+  "tests/test_playground.py": {"blob": "caed4f2589e9a9fee2fce0242e9c9188afb9bde1", "runs": [[1, 17, 0]]}
+ }
+}
