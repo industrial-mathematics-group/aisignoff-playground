@@ -61,3 +61,10 @@ Human-Review = "H2"
 Reviewed-by = ["Pascal Jung"]
 AI-Review = "A1"
 AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), self-check by the generating session"]
+
+[[commits]]
+commit = "a24781b"
+AI-Generation = "G1"
+Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
+AI-Review = "A3"
+AI-Reviewed-by = ["Fable 5.1, extensive review by a different model"]
