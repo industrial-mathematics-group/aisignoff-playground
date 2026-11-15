@@ -52,3 +52,12 @@ path = "docs/notes.md"
 blob = "60eb1495fe2f5be7a4c26c1dc013b9c5ac4bb87b"
 Human-Review = "H3"
 Reviewed-by = ["John Doe"]
+
+[[commits]]
+commit = "2c89617"
+AI-Generation = "G1"
+Assisted-by = ["Claude Sonnet 5.5 (Anthropic)"]
+Human-Review = "H2"
+Reviewed-by = ["Pascal Jung"]
+AI-Review = "A1"
+AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), self-check by the generating session"]
