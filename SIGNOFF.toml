@@ -19,7 +19,7 @@ merge-method = "merge"     # how PRs land: "merge" (default), "squash" or "rebas
 # Minimum review levels. G1-G3 always need at least A1. Tick only H0 in a PR to see it fail.
 [policy]
 "*" = { human = "H1" }
-G3  = { human = "H0", ai = "A2" }
+G3  = { human = "H1", ai = "A2" }
 
 # Default for everything
 [[annotations]]
