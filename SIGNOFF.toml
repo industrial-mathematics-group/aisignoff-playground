@@ -46,3 +46,9 @@ AI-Review = "A2"
 Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
 Reviewed-by = ["Pascal Jung"]
 AI-Reviewed-by = ["Claude Opus 5.5 (Anthropic), fresh review session"]
+
+[[attestations]]
+path = "docs/notes.md"
+blob = "60eb1495fe2f5be7a4c26c1dc013b9c5ac4bb87b"
+Human-Review = "H3"
+Reviewed-by = ["John Doe"]
