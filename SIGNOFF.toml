@@ -52,3 +52,11 @@ path = "docs/notes.md"
 blob = "60eb1495fe2f5be7a4c26c1dc013b9c5ac4bb87b"
 Human-Review = "H3"
 Reviewed-by = ["John Doe"]
+
+[[commits]]
+commit = "3b18bff"
+AI-Generation = "G3"
+Assisted-by = ["Claude Opus 5.5"]
+Human-Review = "H0"
+Reviewed-by = ["Jane Doe"]
+AI-Review = "A1"
