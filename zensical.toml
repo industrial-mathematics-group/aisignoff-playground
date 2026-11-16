@@ -1,2 +1,3 @@
 [project]
 site_name = "aisignoff-playground"
+nav = []
