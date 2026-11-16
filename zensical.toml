@@ -1,3 +1,42 @@
 [project]
 site_name = "aisignoff-playground"
-nav = []
+nav = [
+  { "aisignoff playground" = "index.md" },
+  { "Getting started" = [
+    "getting-started/index.md",
+    "getting-started/setup-on-github.md",
+    "getting-started/first-pull-request.md",
+    "getting-started/local-commands.md",
+  ] },
+  { "Concepts" = [
+    "concepts/index.md",
+    "concepts/declaration-levels.md",
+    "concepts/where-declarations-live.md",
+    "concepts/line-level-history.md",
+    "concepts/policy.md",
+    "concepts/snapshots-and-freeze.md",
+    "concepts/labels-badges-and-reports.md",
+  ] },
+  { "Usage" = [
+    "usage/index.md",
+    "usage/declaring-a-pull-request.md",
+    "usage/signoff-requests.md",
+    "usage/inline-tags-and-commit-trailers.md",
+    "usage/scenarios.md",
+    "usage/release-reports.md",
+  ] },
+  { "Install and extend" = [
+    "deploy-extend/index.md",
+    "deploy-extend/workflows.md",
+    "deploy-extend/optional-workflows.md",
+    "deploy-extend/updating-aisignoff.md",
+    "deploy-extend/workshop-material.md",
+  ] },
+  { "Reference" = [
+    "reference/index.md",
+    "reference/signoff-toml.md",
+    "reference/workflow-options.md",
+    "reference/repository-files.md",
+  ] },
+  { "Troubleshooting" = "troubleshooting.md" },
+]
