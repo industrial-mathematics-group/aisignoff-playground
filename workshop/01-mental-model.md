@@ -24,17 +24,17 @@ Everyone works on their own branch. A pull request brings one branch back into `
 gitGraph
     commit id: "data added"
     commit id: "figure 1"
-    branch jane/new-figure
-    checkout jane/new-figure
+    branch jane-figure
+    checkout jane-figure
     commit id: "figure 2 draft"
     commit id: "caption fixed"
     checkout main
-    branch omar/typos
-    checkout omar/typos
+    branch omar-typos
+    checkout omar-typos
     commit id: "typos in notes"
     checkout main
-    merge omar/typos id: "PR #15 merged"
-    merge jane/new-figure id: "PR #14 merged"
+    merge omar-typos id: "PR #15 merged"
+    merge jane-figure id: "PR #14 merged"
     commit id: "release v1.0" tag: "v1.0"
 ```
 
