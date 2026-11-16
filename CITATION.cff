@@ -1,0 +1,16 @@
+cff-version: 1.2.0
+message: "This is a playground for trying aisignoff. If you cite it anyway, please cite it as below."
+title: "aisignoff playground: a repository for trying AI signoff on GitHub"
+abstract: >-
+  A throwaway repository with a small Python package, results and workshop material, declared with
+  aisignoff (https://github.com/industrial-mathematics-group/aisignoff).
+authors:
+  - family-names: "Jung"
+    given-names: "Pascal"
+    orcid: https://orcid.org/0009-0000-1223-4611
+repository-code: "https://github.com/industrial-mathematics-group/aisignoff-playground"
+type: software
+keywords:
+  - AI declaration
+  - research software
+  - workshop
