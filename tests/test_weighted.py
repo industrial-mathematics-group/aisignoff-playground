@@ -16,3 +16,10 @@ def test_weights_must_match_the_points():
 def test_negative_weights_are_rejected():
     with pytest.raises(ValueError):
         fit_line([0, 1, 2], [1, 2, 3], weights=[1, -1, 1])
+
+
+def test_a_zero_weight_drops_the_point():
+    # the outlier at x = 3 has weight 0: the fit is the line through the other three points
+    slope, intercept = fit_line([0, 1, 2, 3], [1, 3, 5, 100], weights=[1, 1, 1, 0])
+    assert slope == pytest.approx(2)
+    assert intercept == pytest.approx(1)

@@ -21,9 +21,9 @@ def fit_line(xs, ys, weights=None):
     if any(w < 0 for w in weights) or sum(weights) == 0:
         raise ValueError("weights must be non-negative and not all zero")
     mx, my = _weighted_mean(xs, weights), _weighted_mean(ys, weights)
-    sxx = sum((x - mx) ** 2 for x in xs)
+    sxx = sum(w * (x - mx) ** 2 for w, x in zip(weights, xs))
     if sxx == 0:
         raise ValueError("all x values are equal")
-    sxy = sum((x - mx) * (y - my) for x, y in zip(xs, ys))
+    sxy = sum(w * (x - mx) * (y - my) for w, x, y in zip(weights, xs, ys))
     slope = sxy / sxx
     return slope, my - slope * mx
