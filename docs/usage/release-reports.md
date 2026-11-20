@@ -4,7 +4,7 @@ Every published GitHub release gets the AI signoff reports attached as assets, a
 
 ## The release report workflow
 
-`.github/workflows/signoff-release.yml` runs when a release is published (`release: types: [published]`). It checks out the release tag with the whole history (`fetch-depth: 0`), so line-by-line declarations from `[history]` can be worked out. It installs aisignoff at the version set in `AISIGNOFF_VERSION` (`1.0.0rc8` in this repository) and uploads three files to the release.
+`.github/workflows/signoff-release.yml` runs when a release is published (`release: types: [published]`). It checks out the release tag with the whole history (`fetch-depth: 0`), so line-by-line declarations from `[history]` can be worked out. It installs aisignoff at the version set in `AISIGNOFF_VERSION` (`1.0.0rc9` in this repository) and uploads three files to the release.
 
 | Asset | Content | Command |
 |---|---|---|
