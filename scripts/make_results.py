@@ -5,7 +5,7 @@
 # Assisted-by: Claude Opus 5.5 (Anthropic)
 # AI-Reviewed-by: Claude Opus 5.5 (Anthropic), self-check by the generating session
 # Reviewed-by: Pascal Jung
-"""Writes results/fit.csv. This file declares itself with inline tags."""
+"""Writes results/fit.csv, or the file given as the first argument. This file declares itself with inline tags."""
 
 import csv
 import sys
@@ -20,9 +20,16 @@ DATA = {
     "c": ([0, 2, 4], [0, 3.5, 7]),
 }
 
-with open(Path(__file__).resolve().parents[1] / "results" / "fit.csv", "w", newline="") as f:
-    w = csv.writer(f)
-    w.writerow(["dataset", "slope", "intercept"])
-    for name, (xs, ys) in DATA.items():
-        slope, intercept = fit_line(xs, ys)
-        w.writerow([name, round(slope, 4), round(intercept, 4)])
+def write_results(path, data):
+    """Write one row per dataset: its name, slope and intercept, rounded to 4 digits."""
+    with open(path, "w", newline="") as f:
+        w = csv.writer(f)
+        w.writerow(["dataset", "slope", "intercept"])
+        for name, (xs, ys) in data.items():
+            row = fit_line(xs, ys)
+            w.writerow([name, *(round(v, 4) for v in reversed(row))])
+
+
+if __name__ == "__main__":
+    out = Path(sys.argv[1]) if len(sys.argv) > 1 else Path(__file__).resolve().parents[1] / "results" / "fit.csv"
+    write_results(out, DATA)
