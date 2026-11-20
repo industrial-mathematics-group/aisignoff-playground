@@ -33,7 +33,7 @@ This shows reviewers the declarations of just the lines a pull request changes. 
 It runs on pull requests when they are `opened`, `edited`, `synchronize`d or `reopened`, with `contents: read`. The steps are:
 
 1. Check out the repository with `fetch-depth: 0`, so the base commit and the history behind each line are available.
-2. Install aisignoff at the version in `AISIGNOFF_VERSION` (set to `0.14.0` in the example).
+2. Install aisignoff at the version in `AISIGNOFF_VERSION` (set to `1.0.0rc9` in the example).
 3. Take `BASE=$(git rev-parse HEAD^1)`, the first parent of the merge preview, which is the base branch as this run merged it.
 4. Write the pull request description to a file and run:
 
@@ -65,7 +65,7 @@ This shows reviewers the declarations of the files a pull request changes. It do
 It runs on `pull_request` with `contents: read`. The steps are:
 
 1. Check out with `fetch-depth: 0`, because the base commit is needed for the diff.
-2. Install aisignoff at `AISIGNOFF_VERSION` (`0.14.0` in the example).
+2. Install aisignoff at `AISIGNOFF_VERSION` (`1.0.0rc9` in the example).
 3. List the changed files with `git diff --name-only --diff-filter=d -z "$BASE...$HEAD"`, using the pull request's base and head SHAs. Deleted files are left out.
 4. Run `aisignoff report --json` and join the changed files with the report using an inline Python script.
 

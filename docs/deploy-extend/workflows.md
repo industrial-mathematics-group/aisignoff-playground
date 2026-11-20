@@ -66,7 +66,7 @@ See [release reports](../usage/release-reports.md) for how to use the assets.
 
 ## Signoff request and assistant
 
-According to the README, `signoff-request.yml` and `signoff-assistant.yml` provide the issue form *Signoff: declare or attest files* and the @signoff assistant. Both open pull requests that change `SIGNOFF.toml`. The README says the aisignoff version in `signoff-request.yml` can be pinned with `aisignoff-version:`. The workflow files themselves are not covered here, so triggers and permissions are not listed. For how to use them, see [declaring existing files with @signoff](../usage/signoff-requests.md).
+According to the README, `signoff-request.yml` and `signoff-assistant.yml` provide the issue form *Signoff: declare or attest files* and the @signoff assistant. Both open pull requests that change `SIGNOFF.toml`. The workflow files themselves are not covered here, so triggers and permissions are not listed. For how to use them, see [declaring existing files with @signoff](../usage/signoff-requests.md).
 
 ## Permissions at a glance
 

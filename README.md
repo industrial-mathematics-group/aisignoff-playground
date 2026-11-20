@@ -7,7 +7,8 @@ Files and lines (folder report: *Actions → File-signoff →* newest run on `ma
 [![AI generation (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-generation.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
 [![Human review (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-human-review.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
 [![AI review (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-ai-review.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
-[![AI review findings (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-findings.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
+<!-- The findings badge needs the organisation's File-signoff to publish aisignoff-findings.json (aisignoff >= 1.0.0rc9):
+[![AI review findings (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-findings.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml) -->
 
 Merged pull requests:
 [![AI generation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/ai-generation.json)](https://github.com/industrial-mathematics-group/.github/blob/main/.github/CONTRIBUTING.md#g-generation)
@@ -108,19 +109,22 @@ git push -u origin freeze      # and open a PR (tick G0 / H2 / A0, or "Key: valu
 
 ### 7. Findings (aisignoff 1.0.0rc9)
 
-Reports show a fourth axis: what the last independent AI review of a line found. **F-** no such review since the line last changed, **F0** reviewed and nothing open, **F1**/**F2**/**F3** an open minor/major/critical finding. A line gets F0 to F3 only from an A2 or A3 review: the merge commit of a pull request that ticks A2 or A3 and fills `AI-Review-Findings:`, or an attestation with `AI-Review-Findings` (`aisignoff attest FILE -a A2 --ai-reviewed-by "…, reviews/….md" --findings none`). Lines that a later change touches go back to F-. Findings never fail a check.
+Reports show a fourth axis: what the last independent AI review of a line found. **F-** no such review since the line last changed, **F0** reviewed and nothing open (or only trivial findings), **F1**/**F2**/**F3** an open minor/major/critical finding. A line gets F0 to F3 only from an A2 or A3 review with its findings: the merge commit of a pull request that ticks A2 or A3 and fills `AI-Review-Findings:`, an attestation with `AI-Review-Findings` (`aisignoff attest FILE -a A2 --ai-reviewed-by "…, <report>" --findings none`), or a `[[commits]]` entry or annotation with that key. Lines that a later change touches go back to F-, so a fix is unreviewed until the next review. Findings of any severity pass the checks; a missing or invalid `AI-Review-Findings:` line next to A2 or A3 fails them.
 
-The playground has test findings at every level, from pull requests of 20 November 2026 (the reports are in `reviews/`):
+The playground has test findings at every level, from pull requests of 20 November 2026. Each pull request has the review report of Claude Fable in its description:
 
 | File | Findings | From |
 |---|---|---|
-| `src/playground/stats.py`, `src/playground/__init__.py` | F0 | an attestation of an A2 review that found nothing |
-| `tests/test_playground.py` | F1 on the added tests | a pull request with a minor finding |
-| `src/playground/fitting.py` | F2 on the weighted fit, F- on the lines of the fix | a pull request with a major finding, then a fix without an independent review |
-| `scripts/make_results.py` | F3 on the changed lines | a pull request with a critical finding |
+| `src/playground/__init__.py`, `pyproject.toml`, `.gitignore`, `CITATION.cff` | F0 | attestations of an A2 review that found nothing (#26) |
+| `src/playground/stats.py` | F1 | an attestation of an A2 review with a minor finding (#26) |
+| `tests/test_playground.py` | F1 on the added tests | #21, minor: a test that passes for the wrong reason |
+| README and docs lines of #20 | F1, F- where #26 (declared A1) fixed them | #20, minor: docs that still named the old pins |
+| `src/playground/robust.py`, `tests/test_robust.py` | F2 | #22, major: the median of an even number of values |
+| `src/playground/fitting.py`, `tests/test_weighted.py` | F3 on the weighted fit, F- on the lines of the fix | #23, critical: unweighted sums of squares; fixed in #25, declared A1 (no review findings) |
+| `scripts/make_results.py` | F3 on the changed lines | #24, critical: slope and intercept swapped in the output |
 | everything else | F- | no A2 or A3 review |
 
-**Expect:** the folder report (artifact `aisignoff-report` of File-signoff on `main`) has a *Findings* button and shows the share of F- and of F2/F3 at the top; `aisignoff report` ends with a *Findings* block. Then try: open a pull request that changes one line of `src/playground/stats.py` with A1 ticked. **Expect** that line to go back to F- after the merge, the rest of the file to stay at F0.
+**Expect:** the folder report (artifact `aisignoff-report` of File-signoff on `main`) has a *Findings* button and shows the share of F- and of F2/F3 at the top; `aisignoff report` ends with a *Findings* block. Then try: open a pull request that changes one line of `src/playground/__init__.py` with A1 ticked. **Expect** that line to go back to F- after the merge, the rest of the file to stay at F0.
 
 ### 8. Merge queue (optional)
 
