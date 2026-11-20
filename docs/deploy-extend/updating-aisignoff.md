@@ -6,9 +6,9 @@ The aisignoff version is set in several places. Keep them in step: a snapshot or
 
 | Place | How it is set | What it controls |
 |---|---|---|
-| The organisation's shared `file-signoff.yml` workflow | Its default (1.0.0rc8 at the time of writing) | The version used by [File-signoff](workflows.md) when you do not pin one |
+| The organisation's shared `file-signoff.yml` workflow | Its default (1.0.0rc8 at the time of writing; the playground pins 1.0.0rc9) | The version used by [File-signoff](workflows.md) when you do not pin one |
 | `.github/workflows/file-signoff.yml` | `aisignoff-version:` under `with:` (commented out) | Overrides the organisation default for the File-signoff check |
-| `.github/workflows/signoff-release.yml` | `AISIGNOFF_VERSION` under `env:` (currently `"1.0.0rc8"`) | The version that writes the release reports |
+| `.github/workflows/signoff-release.yml` | `AISIGNOFF_VERSION` under `env:` (currently `"1.0.0rc9"`) | The version that writes the release reports |
 | `extras/workflows/signoff-pr-diff.yml`, `extras/workflows/signoff-pr-files.yml` | `AISIGNOFF_VERSION` under `env:` (currently `"0.14.0"`) | The version used by the [optional workflows](optional-workflows.md) |
 | `extras/workflows/file-signoff.yml` | `aisignoff-ref:` under `with:` (commented out) | Pins a release of aisignoff by tag; the default is `main` |
 | Your local install | `pipx install aisignoff==<version>` | The version of `aisignoff` on your machine |
@@ -36,7 +36,7 @@ The value `1.0.0rc3` in the file is only an example of another release. Use the 
 
 ```yaml
 env:
-  AISIGNOFF_VERSION: "1.0.0rc8"
+  AISIGNOFF_VERSION: "1.0.0rc9"
 ```
 
 Change the value and the `pip install "aisignoff==${AISIGNOFF_VERSION}"` step installs that version. The optional workflows in `extras/workflows/` use the same mechanism. Their copies pin `0.14.0`, so update them when you copy them into `.github/workflows/`.
@@ -46,7 +46,7 @@ Change the value and the `pip install "aisignoff==${AISIGNOFF_VERSION}"` step in
 Install the same version locally as CI uses:
 
 ```bash
-pipx install aisignoff==1.0.0rc8
+pipx install aisignoff==1.0.0rc9
 ```
 
 This matters most for snapshots. `SIGNOFF.snapshot.json` records the aisignoff version that wrote it (`"aisignoff": "1.0.0rc6"` in this repository). The check works the snapshot out again, so a snapshot written by one version than CI's can fail the check. See [snapshots and freezing](../concepts/snapshots-and-freeze.md) and [running aisignoff locally](../getting-started/local-commands.md).

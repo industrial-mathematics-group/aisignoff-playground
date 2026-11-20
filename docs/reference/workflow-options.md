@@ -47,7 +47,7 @@ In `.github/workflows/file-signoff.yml` only `weight: lines` is active. In `extr
 
 | Variable | Workflow | Value | Purpose |
 |---|---|---|---|
-| `AISIGNOFF_VERSION` | `signoff-release.yml` | `"1.0.0rc8"` | Version installed with `pip install "aisignoff==${AISIGNOFF_VERSION}"`. |
+| `AISIGNOFF_VERSION` | `signoff-release.yml` | `"1.0.0rc9"` | Version installed with `pip install "aisignoff==${AISIGNOFF_VERSION}"`. |
 | `AISIGNOFF_VERSION` | `signoff-pr-diff.yml`, `signoff-pr-files.yml` | `"0.14.0"` | Same, for the example workflows. |
 | `DESCRIPTION` | `signoff-pr-diff.yml` | `${{ github.event.pull_request.body }}` | The pull request description, written to a file and passed to `--declare-from`. |
 | `AUTHOR` | `signoff-pr-diff.yml` | `${{ github.event.pull_request.user.login }}` | The pull request author, passed to `--author`. |

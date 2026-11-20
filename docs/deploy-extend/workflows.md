@@ -56,7 +56,7 @@ Details:
 
 - Trigger: `release` with type `published`.
 - Permissions: `contents: write`, to upload the release assets.
-- It checks out the tag with `fetch-depth: 0`, so the line-by-line declarations from `[history]` are available. It installs aisignoff with `pip`, pinned by `AISIGNOFF_VERSION` (`1.0.0rc8`).
+- It checks out the tag with `fetch-depth: 0`, so the line-by-line declarations from `[history]` are available. It installs aisignoff with `pip`, pinned by `AISIGNOFF_VERSION` (`1.0.0rc9`).
 - All reports use `--landed`, so a release cut from a release branch is reported as it is.
 - The reports are written to `$RUNNER_TEMP`, outside the work tree. Otherwise lint would count them as undeclared files.
 - It also runs `aisignoff lint --landed`. If files have no valid declaration, this only raises a warning annotation. It does not fail the workflow, and the reports list those files as undeclared.

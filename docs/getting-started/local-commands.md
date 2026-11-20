@@ -7,10 +7,10 @@ The same `aisignoff` tool that CI runs can be installed on your machine, so you 
 Install it with pipx, at the version CI uses:
 
 ```bash
-pipx install aisignoff==1.0.0rc8
+pipx install aisignoff==1.0.0rc9
 ```
 
-The README names `1.0.0rc8` as the organisation's default at the time of writing. `signoff-release.yml` pins the same version in `AISIGNOFF_VERSION`. If you pin another version in `file-signoff.yml` (with `aisignoff-version:`), install that one locally. See [Updating and pinning aisignoff](../deploy-extend/updating-aisignoff.md).
+The playground pins `1.0.0rc9` in `file-signoff.yml` and `pr-signoff.yml`, and `signoff-release.yml` pins the same version in `AISIGNOFF_VERSION`. If you pin another version in `file-signoff.yml` (with `aisignoff-version:`), install that one locally. See [Updating and pinning aisignoff](../deploy-extend/updating-aisignoff.md).
 
 !!! warning
     Keep your local install at the same version as CI. A snapshot written by another version than CI's can fail the check. See [snapshots and freezing](../concepts/snapshots-and-freeze.md).

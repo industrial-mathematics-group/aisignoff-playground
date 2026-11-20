@@ -6,7 +6,7 @@ This section takes you from an empty GitHub repository to a first declared pull 
 
 - **A GitHub repository.** The setup is built around GitHub: the workflows run in GitHub Actions, and the declarations of a pull request are read from its description once it is merged. Use a new repository or an existing one.
 - **A browser.** Everything in the first pull request, from editing a file to merging, can be done in the GitHub web interface. You do not need a command line for it.
-- **aisignoff (optional).** The checks in CI run it for you. Install it locally only if you want to run `aisignoff lint` or the report commands yourself. The README installs it with `pipx install aisignoff==1.0.0rc8`.
+- **aisignoff (optional).** The checks in CI run it for you. Install it locally only if you want to run `aisignoff lint` or the report commands yourself. The README installs it with `pipx install aisignoff==1.0.0rc9`.
 
 !!! note
     The playground reuses the organisation's shared workflows from `industrial-mathematics-group/.github`. You do not have to install the checks yourself; the files in `.github/workflows/` call them.

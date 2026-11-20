@@ -7,6 +7,7 @@ Files and lines (folder report: *Actions → File-signoff →* newest run on `ma
 [![AI generation (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-generation.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
 [![Human review (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-human-review.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
 [![AI review (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-ai-review.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
+[![AI review findings (files)](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-findings.json)](https://github.com/industrial-mathematics-group/aisignoff-playground/actions/workflows/file-signoff.yml)
 
 Merged pull requests:
 [![AI generation](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/ai-generation.json)](https://github.com/industrial-mathematics-group/.github/blob/main/.github/CONTRIBUTING.md#g-generation)
@@ -28,7 +29,7 @@ A throwaway repository for trying [aisignoff](https://github.com/industrial-math
 
 | File | What it does |
 |---|---|
-| `.github/workflows/file-signoff.yml` | The organisation's File-signoff check (aisignoff 1.0.0rc8 by default): every line declared, policy met; folder tree in the job summary, folder report as an artifact; on `main` also the file badges (top row above) on the `badges` branch |
+| `.github/workflows/file-signoff.yml` | The organisation's File-signoff check (pinned to aisignoff 1.0.0rc9): every line declared, policy met; folder tree in the job summary, folder report as an artifact; on `main` also the file badges (top row above) on the `badges` branch |
 | `.github/workflows/pr-signoff.yml` | The organisation's PR-signoff check: validates the ticked template, sets `ai:G*` / `human:H*` / `ai-review:A*` labels |
 | `.github/workflows/signoff-badges.yml` | The organisation's Signoff-Badges workflow: badges of the declarations of merged pull requests (second row) |
 | `.github/workflows/signoff-request.yml`, `signoff-assistant.yml` | The issue form *Signoff: declare or attest files* and the @signoff assistant, which open pull requests that change `SIGNOFF.toml` |
@@ -47,7 +48,7 @@ The pull request template is the organisation's default (`.github/PULL_REQUEST_T
 4. Check the first run under *Actions*: File-signoff should be green, and its summary should show the folder tree.
 5. The badges branch is created by the first push to main after this. The pull request badges show "no declarations yet" until a declared pull request is merged. Don't protect `badges` against pushes by github-actions[bot].
 
-Locally: `pipx install aisignoff==1.0.0rc8`, then `aisignoff lint`, `aisignoff report --files` (with `[history]`, files with mixed lines show the share of each declaration), `aisignoff diff HEAD^1 --files` (the levels of the lines a commit added) and `aisignoff report --json` (every line run with its source).
+Locally: `pipx install aisignoff==1.0.0rc9`, then `aisignoff lint`, `aisignoff report --files` (with `[history]`, files with mixed lines show the share of each declaration), `aisignoff diff HEAD^1 --files` (the levels of the lines a commit added) and `aisignoff report --json` (every line run with its source).
 
 ## Scenarios
 
@@ -105,10 +106,26 @@ git push -u origin freeze      # and open a PR (tick G0 / H2 / A0, or "Key: valu
 - After the freeze has landed, change the `**` annotation: frozen lines keep their levels (`aisignoff report --files` unchanged). `aisignoff freeze --reset docs/notes.md` on `main` applies it to that file.
 - `aisignoff freeze --check` runs the snapshot check on its own.
 
-### 7. Merge queue (optional)
+### 7. Findings (aisignoff 1.0.0rc9)
+
+Reports show a fourth axis: what the last independent AI review of a line found. **F-** no such review since the line last changed, **F0** reviewed and nothing open, **F1**/**F2**/**F3** an open minor/major/critical finding. A line gets F0 to F3 only from an A2 or A3 review: the merge commit of a pull request that ticks A2 or A3 and fills `AI-Review-Findings:`, or an attestation with `AI-Review-Findings` (`aisignoff attest FILE -a A2 --ai-reviewed-by "…, reviews/….md" --findings none`). Lines that a later change touches go back to F-. Findings never fail a check.
+
+The playground has test findings at every level, from pull requests of 20 November 2026 (the reports are in `reviews/`):
+
+| File | Findings | From |
+|---|---|---|
+| `src/playground/stats.py`, `src/playground/__init__.py` | F0 | an attestation of an A2 review that found nothing |
+| `tests/test_playground.py` | F1 on the added tests | a pull request with a minor finding |
+| `src/playground/fitting.py` | F2 on the weighted fit, F- on the lines of the fix | a pull request with a major finding, then a fix without an independent review |
+| `scripts/make_results.py` | F3 on the changed lines | a pull request with a critical finding |
+| everything else | F- | no A2 or A3 review |
+
+**Expect:** the folder report (artifact `aisignoff-report` of File-signoff on `main`) has a *Findings* button and shows the share of F- and of F2/F3 at the top; `aisignoff report` ends with a *Findings* block. Then try: open a pull request that changes one line of `src/playground/stats.py` with A1 ticked. **Expect** that line to go back to F- after the merge, the rest of the file to stay at F0.
+
+### 8. Merge queue (optional)
 
 Turn on the merge queue in the ruleset. **Expect:** the `merge_group` run says it checks `HEAD` as landed, and fails if the description was left unfilled.
 
 ## Updating aisignoff
 
-File-signoff uses the organisation's default version of aisignoff (1.0.0rc8 at the time of writing); pin another one with `aisignoff-version:` in `.github/workflows/file-signoff.yml` and `signoff-request.yml`, and the one in `signoff-release.yml` and `extras/workflows/`. Keep your local install at the same version: a snapshot written by another version than CI's can fail the check.
+File-signoff and PR-signoff pin aisignoff 1.0.0rc9 with `aisignoff-version:` in `.github/workflows/file-signoff.yml` and `pr-signoff.yml` (the organisation's default is 1.0.0rc8 at the time of writing); change it there, and the one in `signoff-release.yml` and `extras/workflows/`. Keep your local install at the same version: a snapshot written by another version than CI's can fail the check.
