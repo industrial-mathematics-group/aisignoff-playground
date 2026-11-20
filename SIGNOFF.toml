@@ -60,3 +60,38 @@ AI-Generation = "G1"
 Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
 AI-Review = "A3"
 AI-Reviewed-by = ["Fable 5.1, extensive review by a different model"]
+
+[[attestations]]
+path = "src/playground/__init__.py"
+blob = "293ff0dafd55f26ffa42370c9871c69209824a06"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), https://github.com/industrial-mathematics-group/aisignoff-playground/pull/26"]
+AI-Review-Findings = "none"
+
+[[attestations]]
+path = "pyproject.toml"
+blob = "e6604c5e92e4d165fbe714a9877f453ee0fe9189"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), https://github.com/industrial-mathematics-group/aisignoff-playground/pull/26"]
+AI-Review-Findings = "none"
+
+[[attestations]]
+path = ".gitignore"
+blob = "d1457f0aa77a9671f3e342ce859ece2554ec37d5"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), https://github.com/industrial-mathematics-group/aisignoff-playground/pull/26"]
+AI-Review-Findings = "none"
+
+[[attestations]]
+path = "CITATION.cff"
+blob = "9599f4abafff43369a97d22bbbf91dade9530fd2"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), https://github.com/industrial-mathematics-group/aisignoff-playground/pull/26"]
+AI-Review-Findings = "none"
+
+[[attestations]]
+path = "src/playground/stats.py"
+blob = "59d066e0a4c395b14339577a8c0d8d0abeabcfc8"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), https://github.com/industrial-mathematics-group/aisignoff-playground/pull/26"]
+AI-Review-Findings = "minor"

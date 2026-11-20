@@ -3,7 +3,7 @@
 This page lists, for each workflow in this repository, when it runs, which permissions it asks for, which inputs and environment variables it uses, and which `aisignoff` commands it calls. For what the workflows are for, see the [workflows page](../deploy-extend/workflows.md).
 
 !!! note
-    The workflow files `signoff-request.yml` and `signoff-assistant.yml` are named in the README but their contents are not part of the material this page is based on. They are therefore not listed here, except that the README says `aisignoff-version:` can be pinned in `signoff-request.yml`.
+    The workflow files `signoff-request.yml` and `signoff-assistant.yml` are named in the README but their contents are not part of the material this page is based on. They are therefore not listed here.
 
 ## Triggers and permissions
 
@@ -38,17 +38,17 @@ Inputs are passed with `with:` to the shared workflow.
 | Input | Used in | Value here | Meaning |
 |---|---|---|---|
 | `weight` | `file-signoff.yml` | `lines` | Weights the badges by lines instead of files. |
-| `aisignoff-version` | `file-signoff.yml` (commented out) | `"1.0.0rc3"` in the comment | Use another release of aisignoff than the organisation's default. |
+| `aisignoff-version` | `file-signoff.yml`, `pr-signoff.yml` | `"1.0.0rc9"` | Use another release of aisignoff than the organisation's default (1.0.0rc8). |
 | `aisignoff-ref` | `extras/workflows/file-signoff.yml` (commented out) | `v0.14.0` in the comment | Pin a release of aisignoff by tag; the comment gives the default as `main`. |
 
-In `.github/workflows/file-signoff.yml` only `weight: lines` is active. In `extras/workflows/file-signoff.yml` both `weight` and `aisignoff-ref` are commented out.
+In `.github/workflows/file-signoff.yml`, `weight: lines` and `aisignoff-version` are active; `pr-signoff.yml` passes only `aisignoff-version`. In `extras/workflows/file-signoff.yml` both `weight` and `aisignoff-ref` are commented out.
 
 ## Environment variables
 
 | Variable | Workflow | Value | Purpose |
 |---|---|---|---|
 | `AISIGNOFF_VERSION` | `signoff-release.yml` | `"1.0.0rc9"` | Version installed with `pip install "aisignoff==${AISIGNOFF_VERSION}"`. |
-| `AISIGNOFF_VERSION` | `signoff-pr-diff.yml`, `signoff-pr-files.yml` | `"0.14.0"` | Same, for the example workflows. |
+| `AISIGNOFF_VERSION` | `signoff-pr-diff.yml`, `signoff-pr-files.yml` | `"1.0.0rc9"` | Same, for the example workflows. |
 | `DESCRIPTION` | `signoff-pr-diff.yml` | `${{ github.event.pull_request.body }}` | The pull request description, written to a file and passed to `--declare-from`. |
 | `AUTHOR` | `signoff-pr-diff.yml` | `${{ github.event.pull_request.user.login }}` | The pull request author, passed to `--author`. |
 | `BASE` | `signoff-pr-files.yml` | `${{ github.event.pull_request.base.sha }}` | Base commit for the list of changed files. |
