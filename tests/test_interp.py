@@ -23,3 +23,7 @@ def test_outside_returns_end_values():
 def test_needs_two_knots():
     with pytest.raises(ValueError):
         interp(0.0, [0.0], [1.0])
+
+
+def test_at_last_knot():
+    assert interp(3.0, XS, YS) == 0.0
