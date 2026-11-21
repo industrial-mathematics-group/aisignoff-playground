@@ -1,0 +1,14 @@
+# An independent AI review, recorded by 'aisignoff attest'. The review folder keeps it as it is:
+# a later review goes into a new file.
+
+[[attestations]]   # #3, the change the finding was about
+commit = "99d425b207e45ad716848592c3cb0338d279c048"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), reviews/pr4-fix.md"]
+AI-Review-Findings = "none"
+
+[[attestations]]   # #4, the fix
+commit = "cf5f2fe8f18631172fd2aec745119ad1e967dce6"
+AI-Review = "A2"
+AI-Reviewed-by = ["Claude Fable 5.2 (Anthropic), reviews/pr4-fix.md"]
+AI-Review-Findings = "none"
