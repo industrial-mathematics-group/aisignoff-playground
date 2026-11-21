@@ -1,0 +1,15 @@
+[project]
+name = "playground"
+version = "0.1.0"
+description = "A small numerical package that serves as a testground for aisignoff"
+requires-python = ">=3.11"
+
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[tool.setuptools.packages.find]
+where = ["src"]
+
+[tool.pytest.ini_options]
+pythonpath = ["src"]
