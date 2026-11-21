@@ -12,7 +12,7 @@ def interp(x, xs, ys):
         raise ValueError("need at least two knots and as many values as knots")
     if x < xs[0]:
         return ys[0]
-    if x > xs[-1]:
+    if x >= xs[-1]:
         return ys[-1]
     i = bisect_right(xs, x)
     x0, x1 = xs[i - 1], xs[i]
