@@ -36,8 +36,12 @@ AI-Review = "A0"
 Assisted-by = ["Claude Opus 5.5 (Anthropic)"]
 Reviewed-by = ["Jane Doe"]
 
-# #7 was declared G0, but code completions wrote parts of units.py (Jane Doe, 2026-11-21)
+# #7 was declared G0, but code completions wrote parts of units.py (Jane Doe, 2026-11-21)2cefdb5
 [[commits]]
 commit = "1e4da04c13dc60eed67ad91d03a8618894ba70d5"
 AI-Generation = "G1"
 Assisted-by = ["GitHub Copilot (code completions)"]
+[[commits]]
+commit = "2cefdb5"
+Human-Review = "H1"
+Reviewed-by = ["Jane Doe"]
