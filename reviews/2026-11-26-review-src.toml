@@ -1,0 +1,30 @@
+# An independent AI review, recorded by 'aisignoff attest'. The review folder keeps it as it is:
+# a later review goes into a new file.
+
+[[attestations]]
+path = "src/playground/__init__.py"
+blob = "10d9241b6c7a847815928b0438035d36835bf6a1"
+AI-Review = "A1"
+AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), new session without the generating conversation, quick review requested in https://github.com/industrial-mathematics-group/aisignoff-playground/issues/12#issuecomment-7201138259"]
+AI-Review-Findings = "none"
+
+[[attestations]]
+path = "src/playground/interp.py"
+blob = "f00dcf7c6d6647faa8d2b4c6a0547b2da4b098cf"
+AI-Review = "A1"
+AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), new session without the generating conversation, quick review requested in https://github.com/industrial-mathematics-group/aisignoff-playground/issues/12#issuecomment-7201138259"]
+AI-Review-Findings = "trivial"
+
+[[attestations]]
+path = "src/playground/stats.py"
+blob = "36dcc8326e58acdc8b847bec1d49c01d6180937f"
+AI-Review = "A1"
+AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), new session without the generating conversation, quick review requested in https://github.com/industrial-mathematics-group/aisignoff-playground/issues/12#issuecomment-7201138259"]
+AI-Review-Findings = "major"
+
+[[attestations]]
+path = "src/playground/units.py"
+blob = "865b83499c39be7982ca05918aa1cec834635814"
+AI-Review = "A1"
+AI-Reviewed-by = ["Claude Sonnet 5.5 (Anthropic), new session without the generating conversation, quick review requested in https://github.com/industrial-mathematics-group/aisignoff-playground/issues/12#issuecomment-7201138259"]
+AI-Review-Findings = "minor"
