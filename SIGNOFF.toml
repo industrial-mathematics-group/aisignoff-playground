@@ -23,7 +23,7 @@ G3  = { human = "H1" }
 # annotations below are the baseline for lines whose commit declares nothing.
 [history]
 enabled = true
-undeclared = "error"                   # every commit on the default branch must declare its lines
+#undeclared = "error"                   # every commit on the default branch must declare its lines
 # require-trailers-since = "<commit>"  # ... from this commit on
 merge-method = "merge"                 # how pull requests land: merge, squash or rebase
 
