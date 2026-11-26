@@ -1,0 +1,13 @@
+# REUSE (https://reuse.software): the copyright and license of files that can't carry a header.
+# Check with: pipx run reuse lint
+version = 1
+
+[[annotations]]
+path = "**"
+SPDX-FileCopyrightText = "2026 Industrial Mathematics Group"
+SPDX-License-Identifier = "MIT"
+
+[[annotations]]
+path = "reviews/**"
+SPDX-FileCopyrightText = "2026 Industrial Mathematics Group"
+SPDX-License-Identifier = "CC-BY-4.0"
