@@ -11,8 +11,8 @@ A testground for [aisignoff](https://github.com/industrial-mathematics-group/ais
 
 ## Setup
 
-- `SIGNOFF.toml` comes from `aisignoff init --history`, with `undeclared = "error"` (every commit that lands lines must declare them), `merge-method = "merge"`, and a small `[policy]`: H0 for everything, H1 for G3.
-- The workflows are aisignoff's examples, pinned to 0.24.0: [`signoff.yml`](.github/workflows/signoff.yml) (`signoff-badges.yml`, with the pull request description check added), [`signoff-pr-diff.yml`](.github/workflows/signoff-pr-diff.yml) and [`signoff-pr-files.yml`](.github/workflows/signoff-pr-files.yml). [`tests.yml`](.github/workflows/tests.yml) runs pytest.
+- `SIGNOFF.toml` comes from `aisignoff init --history`, with `merge-method = "merge"` and a small `[policy]`: H0 for everything, H1 for G3.
+- The workflows call the group's reusable workflows in `industrial-mathematics-group/.github`, with aisignoff at the organisation's version: [`file-signoff.yml`](.github/workflows/file-signoff.yml) (lint and file badges), [`pr-signoff.yml`](.github/workflows/pr-signoff.yml) (the pull request's declaration), [`zensical-docs.yml`](.github/workflows/zensical-docs.yml) (the docs site with the folder report at `signoff/`), [`reuse.yml`](.github/workflows/reuse.yml) and [`citation.yml`](.github/workflows/citation.yml). [`tests.yml`](.github/workflows/tests.yml) runs pytest. `REUSE.toml`, `CITATION.cff` and `zensical.toml` were set up by IMGAgent (#13 to #15).
 - Pull requests land as merge commits whose message is the pull request description, so each description declares the lines its pull request landed.
 - `AGENTS.md` points coding agents to `aisignoff guide`.
 
