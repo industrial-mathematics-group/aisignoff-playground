@@ -5,14 +5,14 @@
 [![AI review](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-ai-review.json)](#what-the-report-shows)
 [![AI review findings](https://img.shields.io/endpoint?url=https://raw.githubusercontent.com/industrial-mathematics-group/aisignoff-playground/badges/aisignoff-findings.json)](#what-the-report-shows)
 
-A testground for [aisignoff](https://github.com/industrial-mathematics-group/aisignoff) **0.18.0**. The content is a tiny numerical package (`src/playground/`: statistics, interpolation, unit conversions). The point is its history: each merged pull request shows one feature of aisignoff, and together they give the report something to show for every level.
+A testground for [aisignoff](https://github.com/industrial-mathematics-group/aisignoff) **0.24.0**. The content is a tiny numerical package (`src/playground/`: statistics, interpolation, unit conversions). The point is its history: each merged pull request shows one feature of aisignoff, and together they give the report something to show for every level.
 
 > **Everything here is staged.** All code, reports and declarations were written by Claude (Anthropic) to demonstrate aisignoff. "Jane Doe" is a fictional maintainer, and the reviews credited to Claude Fable and to a new Claude Opus session are example reports written to show the format, not reviews those models ran. The bugs the reviews find were planted on purpose. Don't read the levels as a statement about this code.
 
 ## Setup
 
-- `SIGNOFF.toml` comes from `aisignoff init --history`, with `undeclared = "error"` (every commit that lands lines must declare them), `merge-method = "merge"`, and a small `[policy]`: H0 for everything, H1 for G3.
-- The workflows are aisignoff's examples, pinned to 0.18.0: [`signoff.yml`](.github/workflows/signoff.yml) (`signoff-badges.yml`, with the pull request description check added), [`signoff-pr-diff.yml`](.github/workflows/signoff-pr-diff.yml) and [`signoff-pr-files.yml`](.github/workflows/signoff-pr-files.yml). [`tests.yml`](.github/workflows/tests.yml) runs pytest.
+- `SIGNOFF.toml` comes from `aisignoff init --history`, with `merge-method = "merge"` and a small `[policy]`: H0 for everything, H1 for G3.
+- The workflows call the group's reusable workflows in `industrial-mathematics-group/.github`, with aisignoff at the organisation's version: [`file-signoff.yml`](.github/workflows/file-signoff.yml) (lint and file badges), [`pr-signoff.yml`](.github/workflows/pr-signoff.yml) (the pull request's declaration), [`zensical-docs.yml`](.github/workflows/zensical-docs.yml) (the docs site with the folder report at `signoff/`), [`reuse.yml`](.github/workflows/reuse.yml) and [`citation.yml`](.github/workflows/citation.yml). [`tests.yml`](.github/workflows/tests.yml) runs pytest. `REUSE.toml`, `CITATION.cff` and `zensical.toml` were set up by IMGAgent (#13 to #15).
 - Pull requests land as merge commits whose message is the pull request description, so each description declares the lines its pull request landed.
 - `AGENTS.md` points coding agents to `aisignoff guide`.
 
@@ -58,7 +58,7 @@ The G3, A0 and F- shares are mostly the workflow files of the setup commit and t
 ## Try it
 
 ```bash
-pipx install aisignoff==0.18.0
+pipx install aisignoff==0.24.0
 git clone https://github.com/industrial-mathematics-group/aisignoff-playground && cd aisignoff-playground
 aisignoff lint
 aisignoff report --files
